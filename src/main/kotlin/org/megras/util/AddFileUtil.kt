@@ -225,6 +225,7 @@ object AddFileUtil {
 
                 } catch (e: Exception) {
                     logger.error("Error while creating canonical representation for ${rawDescriptor.mimeType}: ${e.localizedMessage}")
+                    e.printStackTrace()
                     rawDescriptor
                 }
             }

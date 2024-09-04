@@ -1,0 +1,20 @@
+{
+  "objectStoreBase": "store",
+  "httpPort": 8080,
+  "backend": "FILE",
+  "fileStore": {
+    "filename": "quads.tsv",
+    "compression": false
+  },
+  "cottontailConnection": {
+    "host": "localhost",
+    "port": 1865
+  },
+  "postgresConnection": {
+    "host": "localhost",
+    "port": 5432,
+    "database": "megras",
+    "user": "megras",
+    "password": "megras"
+  }
+}

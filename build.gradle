@@ -1,3 +1,5 @@
+import org.openapitools.generator.gradle.plugin.tasks.GenerateTask
+
 plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.8.10'
     id 'org.jetbrains.kotlin.plugin.serialization' version '1.8.10'
@@ -6,6 +8,7 @@ plugins {
     id 'org.jetbrains.kotlin.kapt' version '1.8.10'
     id 'antlr'
     id 'org.openjfx.javafxplugin' version '0.0.14'
+    id 'org.openapi.generator' version '5.2.0'
 }
 
 group 'org.megras'
@@ -157,23 +160,50 @@ javafx {
     modules = [ 'javafx.graphics' ]
 }
 
-//generateGrammarSource {
-//    maxHeapSize = "64m"
-//    arguments += ["-visitor",
-//                  "-long-messages",
-//                  "-package", "org.megras.lang.sparql"]
-//
-//}
+generateGrammarSource {
+    maxHeapSize = "64m"
+    arguments += ["-visitor",
+                  "-long-messages",
+                  "-package", "org.megras.lang.sparql"]
+
+}
 
 test {
     useJUnitPlatform()
 }
 
 compileKotlin {
-//    dependsOn(tasks.generateGrammarSource)
-    kotlinOptions.jvmTarget = '1.8'
+    dependsOn(tasks.generateGrammarSource)
+    kotlinOptions.jvmTarget = '17'
+}
+
+compileJava {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }
 
 compileTestKotlin {
-    kotlinOptions.jvmTarget = '1.8'
+    kotlinOptions.jvmTarget = '17'
+}
+
+kotlin {
+    jvmToolchain(17)
+}
+
+/// Generates the openapi python bindings
+
+def oasFile = "${project.projectDir}/docs/oas.json"
+tasks.register('generatePython', GenerateTask) {
+    /// Source command:
+    generateApiTests = false
+    generateModelTests = false
+    validateSpec = false
+
+    generatorName = 'python'
+    inputSpec = oasFile
+    outputDir = file("${project.projectDir}/megras-python-client").toString()
+    configOptions = [
+            packageName: "media_graph_construction.openapi.megraspy",
+            generateSourceCodeOnly: "true"
+    ]
 }
