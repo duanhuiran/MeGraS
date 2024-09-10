@@ -72,6 +72,7 @@ All URIs are relative to *http://localhost*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AdditionApi* | [**post_add_quads**](media_graph_construction/openapi/megraspy/docs/AdditionApi.md#post_add_quads) | **POST** /add/quads | Adds new quads to the graph.
+*DeletionApi* | [**post_delete_quads**](media_graph_construction/openapi/megraspy/docs/DeletionApi.md#post_delete_quads) | **POST** /delete/quads | Deletes matching quads from the graph.
 *QueryApi* | [**get_query_sparql**](media_graph_construction/openapi/megraspy/docs/QueryApi.md#get_query_sparql) | **GET** /query/sparql | Queries the Graph using SPARQL.
 *QueryApi* | [**post_query_knn**](media_graph_construction/openapi/megraspy/docs/QueryApi.md#post_query_knn) | **POST** /query/knn | Queries the Graph for quads within a kNN-cluster.
 *QueryApi* | [**post_query_object**](media_graph_construction/openapi/megraspy/docs/QueryApi.md#post_query_object) | **POST** /query/object | Queries the Graph for quads with a specific object.

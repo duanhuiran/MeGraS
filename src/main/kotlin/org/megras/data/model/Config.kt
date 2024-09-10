@@ -40,7 +40,15 @@ data class Config(
 
         fun read(file: File): Config? {
             return try{
-                Json.decodeFromString(serializer(), file.readText(Charsets.UTF_8))
+                val fileContent = file.readText(Charsets.UTF_8)
+                // Replace placeholders with environment variable values
+                val resolvedContent = fileContent
+                    .replace("\${FFMPEG_PATH}", System.getenv("FFMPEG_PATH") ?: "")
+
+                println("Resolved Configuration:")
+                println(resolvedContent)
+
+                Json.decodeFromString(serializer(), resolvedContent)
             } catch (e: Exception) {
                 logger.error("cannot parse config provided in file '${file.absolutePath}'", e)
                 null

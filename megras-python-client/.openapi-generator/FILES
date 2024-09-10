@@ -1,9 +1,9 @@
-.openapi-generator-ignore
 media_graph_construction/__init__.py
 media_graph_construction/openapi/__init__.py
 media_graph_construction/openapi/megraspy/__init__.py
 media_graph_construction/openapi/megraspy/api/__init__.py
 media_graph_construction/openapi/megraspy/api/addition_api.py
+media_graph_construction/openapi/megraspy/api/deletion_api.py
 media_graph_construction/openapi/megraspy/api/query_api.py
 media_graph_construction/openapi/megraspy/api_client.py
 media_graph_construction/openapi/megraspy/apis/__init__.py
@@ -22,6 +22,7 @@ media_graph_construction/openapi/megraspy/docs/ApiSparqlResultBody.md
 media_graph_construction/openapi/megraspy/docs/ApiSparqlResultHead.md
 media_graph_construction/openapi/megraspy/docs/ApiSparqlResultValue.md
 media_graph_construction/openapi/megraspy/docs/ApiTextQuery.md
+media_graph_construction/openapi/megraspy/docs/DeletionApi.md
 media_graph_construction/openapi/megraspy/docs/Distance.md
 media_graph_construction/openapi/megraspy/docs/QueryApi.md
 media_graph_construction/openapi/megraspy/docs/RestErrorStatus.md

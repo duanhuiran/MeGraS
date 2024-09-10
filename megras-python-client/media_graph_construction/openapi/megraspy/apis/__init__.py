@@ -15,4 +15,5 @@
 
 # Import APIs into API package:
 from media_graph_construction.openapi.megraspy.api.addition_api import AdditionApi
+from media_graph_construction.openapi.megraspy.api.deletion_api import DeletionApi
 from media_graph_construction.openapi.megraspy.api.query_api import QueryApi

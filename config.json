@@ -6,6 +6,10 @@
     "filename": "quads.tsv",
     "compression": false
   },
+  "ffmpeg": {
+    "ffmpegPath": "${FFMPEG_PATH}",
+    "ffprobePath": "${FFMPEG_PATH}"
+  },
   "cottontailConnection": {
     "host": "localhost",
     "port": 1865
